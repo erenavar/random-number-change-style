@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <text>1'den 99'a kadar olan sayıları for döngüsü ile </text>
+    <button id="sirala" onclick="sirala()">Sırala</button> <br />
+    <button id="random" onclick="random()">Rastgele Sayı Seç</button><br />
+    <br />
+
+    <span id="numbers"></span>
+
+    <script>
+      document.getElementById("random").disabled = true;
+      function sirala() {
+        for (i = 1; i < 100; i++) {
+          if (i % 10 == 0) {
+            document.getElementById(
+              "numbers"
+            ).innerHTML += `<span id=${i}>${i}</span>  <br>`;
+          } else {
+            document.getElementById(
+              "numbers"
+            ).innerHTML += `<span id=${i}>${i}</span> `;
+          }
+        }
+        document.getElementById("sirala").disabled = true;
+        document.getElementById("random").disabled = false;
+      }
+
+      function random() {
+        let number = Math.floor(Math.random() * 100 + 1);
+
+        let number2 = toString(number);
+        document.getElementById(`${number}`).style.color = "red";
+        document.getElementById(`${number}`).style.fontWeight = "bold";
+      }
+    </script>
+  </body>
+</html>
